@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
@@ -5,41 +6,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
-    <style>
-        /* Add custom styles for the toast message */
-        .toast-container {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1000;
-        }
-    </style>
-
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include Toastr.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 </head>
+
 <body>
 
 <div class="container text-center">
     <h1>Home Feedbacks</h1>
-
+</div>
+<div class="container text-center">
+    <a href="http://localhost:8080/form" > <button class="btn btn-primary">New Form</button> </a>
 </div>
 
-<c:if test="${not empty dataStatus}">
-    <div class="toast-container">
-        <div id="toastMessage" class="toast align-items-center text-white bg-success border-0" role="alert"
-             aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                        ${dataStatus}
-                </div>
-                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-        </div>
-    </div>
+<c:if test ="${not empty dataStatus}">
+    <script>
+        toastr.info("${dataStatus}");
+    </script>
 </c:if>
 
 
@@ -97,21 +90,7 @@
 
 </div>
 
-<!-- Bootstrap JavaScript and jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    // Show the toast message
-    var toast = new bootstrap.Toast(document.getElementById('toastMessage'));
-    toast.show();
-
-    // Hide the toast message after 3 seconds
-    setTimeout(function () {
-        toast.hide();
-    }, 3000); // 3 seconds
-</script>
-
-
 </body>
 </html>

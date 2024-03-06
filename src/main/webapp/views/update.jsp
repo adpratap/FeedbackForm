@@ -1,4 +1,7 @@
 <%@ taglib prefix="if" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +15,6 @@
 <div class="container text-center">
     <h1>${headingText}</h1>
 </div>
-
 
 <div class="container center-pill">
 
